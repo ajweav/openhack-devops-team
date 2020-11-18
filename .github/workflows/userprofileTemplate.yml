@@ -32,7 +32,7 @@ jobs:
         # checkout the repo
         - name: 'Checkout GitHub Action'
           uses: actions/checkout@v2
-          
+        #login with new credential  
         - name: 'Login via Azure CLI'
           uses: azure/login@v1
           with:
