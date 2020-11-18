@@ -14,26 +14,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    defaults:
+       run:
+          shell: bash
+          working-directory: apis/userprofile
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
         with:
           node-version: 12
-      - run: npm ci apis/userprofile
+      - run: npm ci 
       - run: npm test
 
-  publish-npm:
-    needs: build
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://registry.npmjs.org/
-      - run: npm ci apis/userprofile
-      - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+
 
 
