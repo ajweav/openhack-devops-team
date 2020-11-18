@@ -26,7 +26,7 @@ jobs:
       - run: npm ci 
       - run: npm test
   
-  build-and-deploy:
+  deploy:
         runs-on: ubuntu-latest
         steps:
         # checkout the repo
